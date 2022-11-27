@@ -1,8 +1,6 @@
 <?php
 
 
-// KLARA HELA DEN HÄR SIDAN!! 
-
 class Cart
 {
     private array $items = [];

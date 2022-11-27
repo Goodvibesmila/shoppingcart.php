@@ -3,10 +3,23 @@
 
 class CartItem
 {
+
+    public function __construct($product, $quantity)
+    
+    {
+        $this->product = $product;
+        $this->quantity = $quantity;
+    }
+
     private $product;
     private int $quantity;
 
-    // TODO Skriv en konstruktor som sätter alla properties
+    public function getProductQuantity()
+    {
+        return $this->id . " " . $this->title . " " . $this->price . " " . $this->inStock;
+    }
+
+    // CHECK TODO Skriv en konstruktor som sätter alla properties
 
     // TODO Skriv getters för alla properties
 

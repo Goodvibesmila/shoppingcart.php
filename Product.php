@@ -1,7 +1,5 @@
 <?php
 
-//HELA DENNA SIDAN
-
 class Product
 {
 
