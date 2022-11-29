@@ -14,14 +14,19 @@ class CartItem
     private $product;
     private int $quantity;
 
-    public function getProductQuantity()
+    public function getProduct()
     {
-        return $this->id . " " . $this->title . " " . $this->price . " " . $this->inStock;
+        return $this->product;
+    }
+
+    public function getQuantity()
+    {
+        return $this->quantity;
     }
 
     // CHECK TODO Skriv en konstruktor som sätter alla properties
 
-    // TODO Skriv getters för alla properties
+    // CHECK TODO Skriv getters för alla properties
 
 
     //VG: Skall utöka antalet på ett cartItem med 1. 
