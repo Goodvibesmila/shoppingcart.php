@@ -8,13 +8,13 @@ class Cart
     // CHECK TODO Skriv getter för items
     public function getItems()
     {
-        return $this->items; // Eller?
+        return $this->items; 
     }
 
 
 
     /*
-     Skall lägga till en produkt i kundvagnen genom att
+     CHECK Skall lägga till en produkt i kundvagnen genom att
      skapa ett nytt cartItem och lägga till i $items array.
      Metoden skall returnera detta cartItem.
 
@@ -24,20 +24,26 @@ class Cart
 
     public function addProduct($product)
     {
-        $cartItem = new CartItem($product, 1);
+
+        if (isset($this->items[$product->getId()])) {
+            $this->items[$product->getId()]->increaseQuantity(1);
+        }
+        else {
+            $cartItem = new CartItem($product, 1);
         $this->items[$product->getId()] = $cartItem;
-        return $cartItem;
+        }
+
+    return $cartItem;
     }
 
-
-    //Skall ta bort en produkt ur kundvagnen (använd unset())
+    //CHECK Skall ta bort en produkt ur kundvagnen (använd unset())
     public function removeProduct($product)
     {
         unset($this->items[$product->getId()]);
     }
 
-    //Skall returnera totala antalet produkter i kundvagnen
-    //OBS: Ej antalet unika produkter
+    //CHECK Skall returnera totala antalet produkter i kundvagnen
+    //CHECK OBS: Ej antalet unika produkter
     public function getTotalQuantity()
     {
         $totalQuantity = 0;
