@@ -18,7 +18,7 @@ class Cart
      skapa ett nytt cartItem och lägga till i $items array.
      Metoden skall returnera detta cartItem.
 
-     VG: Om produkten redan finns i kundvagnen
+     CHECK VG: Om produkten redan finns i kundvagnen
      skall istället quantity på cartitem ökas.
      */
 
@@ -26,15 +26,16 @@ class Cart
     {
 
         if (isset($this->items[$product->getId()])) {
-            $this->items[$product->getId()]->increaseQuantity(1);
+            $this->items[$product->getId()]->increaseQuantity();
+            return $this->items[$product->getId()];
         }
         else {
             $cartItem = new CartItem($product, 1);
-        $this->items[$product->getId()] = $cartItem;
+            $this->items[$product->getId()] = $cartItem;
+            return $cartItem;
         }
-
-    return $cartItem;
     }
+
 
     //CHECK Skall ta bort en produkt ur kundvagnen (använd unset())
     public function removeProduct($product)
